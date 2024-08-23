@@ -14,6 +14,7 @@ Patterns covered:
 * Proxy-based wrapper around playwright test.step – to be applied on an object level to log all its methods calls (excluding `toString` and the methods named with `_` or `$` prefix)
   * allowing to report the corresponding PageObject steps
   * with actual application as `return withSteps(this)` last line in the PageObject constructor
+* AAA pattern of BDD style reported steps – GIVEN/WHEN/THEN over Arrange/Act/Assert)
 
 Find the App Manager pattern explained in [«Selenides for PageObjects Tutorial»](https://autotest.how/selenides-for-page-objects-tutorial-md).
 
@@ -21,11 +22,10 @@ The proxy appliction to report each step-method of a PageObject will be document
 
 ## Other TODOs
 
+* fix instability of tests implementation, making failures like `Execution context was destroyed, most likely because of a navigation`
 * fix: method-based locators are broken once proxied via `withSteps` if not ignored with corresponding prefix (`_` or `$`)
 * add installation instructions to README
 * add project settings with dotenv overrides to allow customize steps behavior (like prefixes to ignore, etc.)
-* add example of GHERKIN usage
-* upgrade GHERKIN steps implementation to skip mandatory title (make it optional)
 * model one more page (like playwright docs, etc.)
 * document main examples of code + reports in README (with screenshots, like in [python-web-test project template README](https://github.com/yashaka/python-web-test?tab=readme-ov-file#details))
 * add "human readable" rendering of steps, similar to [_full_description_for helper implementation from Selene](https://github.com/yashaka/selene/blob/master/selene/common/_typing_functions.py#L119) that utilizes threading "macros" implementation in python (consider implementing similar in js)
@@ -42,3 +42,4 @@ The proxy appliction to report each step-method of a PageObject will be document
     str.lower,
   )
   ```
+* can we make proxy impl lines not reported in html report steps?
