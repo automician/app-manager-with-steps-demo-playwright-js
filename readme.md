@@ -22,7 +22,6 @@ The proxy appliction to report each step-method of a PageObject will be document
 
 ## Other TODOs
 
-* fix instability of tests implementation, making failures like `Execution context was destroyed, most likely because of a navigation`
 * fix: method-based locators are broken once proxied via `withSteps` if not ignored with corresponding prefix (`_` or `$`)
 * add installation instructions to README
 * add project settings with dotenv overrides to allow customize steps behavior (like prefixes to ignore, etc.)
@@ -42,4 +41,20 @@ The proxy appliction to report each step-method of a PageObject will be document
     str.lower,
   )
   ```
+  * if ported straightforward to js it would looke like:
+
+  ```js
+  threadLast(
+    fullName,
+    [String.prototype.replace, /([a-z0-9])([A-Z])/g, '$1 $2'],
+    [String.prototype.replace, /(\w)\.(\w)/g, '$1 $2'],
+    [String.prototype.replace, /(^_+|_+$)/g, ''],
+    [String.prototype.replace, /_+/g, ' '],
+    [String.prototype.replace, /(\s)+/g, '$1'],
+    String.prototype.toLowerCase,
+  )
+  ```
+
+  – that does not look concise enough:) so let's think on in a bit more...
+
 * can we make proxy impl lines not reported in html report steps?
