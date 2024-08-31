@@ -19,6 +19,7 @@ test('finds playwright | Straightforward, AAA pattern (implicit)', async ({ page
   await page.locator('[name="q"]').pressSequentially('playwright')
   await page.keyboard.press('Enter')
   await expect(page.locator('#rso .g[data-hveid]')).toHaveCountGreaterThanOrEqual(6)
+  // await expect(page.locator('#rso .g[data-hveid]')).toHaveCountGreaterThanOrEqual(8)
   await expect(page.locator('#rso .g[data-hveid]').first()).toContainText('Playwright')
 
   await page.locator('#rso .g[data-hveid]').first().locator('h3').first().click()

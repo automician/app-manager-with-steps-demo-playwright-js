@@ -22,9 +22,9 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
-    ['list', { printSteps: true }],
+    ['list', { printSteps: false }],
     // ['html', { open: 'on-failure' }],
-    ['html', { open: 'allways' }],
+    ['html', { open: 'allways', port: 9324 }],
   ],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

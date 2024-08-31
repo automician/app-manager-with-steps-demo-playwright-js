@@ -22,6 +22,8 @@ The proxy appliction to report each step-method of a PageObject will be document
 
 ## Other TODOs
 
+* refactor for project root based imports
+* implement custom dotenv support
 * fix: method-based locators are broken once proxied via `withSteps` if not ignored with corresponding prefix (`_` or `$`)
 * add installation instructions to README
 * add project settings with dotenv overrides to allow customize steps behavior (like prefixes to ignore, etc.)
