@@ -12,6 +12,20 @@ test('finds playwright | StepsObject, AAA pattern (implicit)', async ({ app }) =
   await app.shouldHavePageTitle(/Playwright/)
 })
 
+test('finds playwright | PageObject-like (assertion-free, kind of), AAA pattern (implicit)', async ({
+  app,
+}) => {
+  await app.google.open()
+  await expect(app.google.query.locator).toBeEmpty()
+
+  await app.google.search('playwright')
+  await expect(app.google.results).toHaveCountGreaterThanOrEqual(6)
+  await expect(app.google.result(1)).toContainText('Playwright')
+
+  await app.google.resultHeader(1).click()
+  await expect(app.page).toHaveTitle(/Playwright/)
+})
+
 test('finds playwright | Straightforward, AAA pattern (implicit)', async ({ page }) => {
   await page.goto('https://google.com/ncr')
   await expect(page.locator('[name="q"]')).toBeEmpty()
@@ -19,8 +33,6 @@ test('finds playwright | Straightforward, AAA pattern (implicit)', async ({ page
   await page.locator('[name="q"]').pressSequentially('playwright')
   await page.keyboard.press('Enter')
   await expect(page.locator('#rso .g[data-hveid]')).toHaveCountGreaterThanOrEqual(6)
-  // await expect(page.locator('#rso .g[data-hveid]')).toHaveCountGreaterThanOrEqual(8)
-  await expect(page.locator('#rso .g[data-hveid]').first()).toContainText('Playwright')
 
   await page.locator('#rso .g[data-hveid]').first().locator('h3').first().click()
   await expect(page).toHaveTitle(/Playwright/)

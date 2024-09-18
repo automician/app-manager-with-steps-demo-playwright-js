@@ -11,20 +11,20 @@ Patterns covered:
   * applied to both pages and controls (like TextInput)
 * An ApplicationManager as one entry point to "pages" PageObjects
   * with a corresponding playwright fixture to simplify reuse in tests
-* Proxy-based wrapper around playwright test.step – to be applied on an object level to log all its methods calls (excluding `toString` and the methods named with `_` or `$` prefix)
+* Proxy-based wrapper around playwright test.step – to be applied on an object level to log all its methods calls (excluding `toString` and the methods named with `_` or `$` prefix, and non-async methods on `{ignoreNonAsync: true}` options arg set)
   * allowing to report the corresponding PageObject steps
   * with actual application as `return withSteps(this)` last line in the PageObject constructor
+
 * AAA pattern of BDD style reported steps – GIVEN/WHEN/THEN over Arrange/Act/Assert)
 
 Find the App Manager pattern explained in [«Selenides for PageObjects Tutorial»](https://autotest.how/selenides-for-page-objects-tutorial-md).
 
-The proxy appliction to report each step-method of a PageObject will be documented later, stay tuned;).
+The proxy appliction to report each step-method of a PageObject will be documented later in more details, stay tuned;).
 
 ## Other TODOs
 
 * refactor for project root based imports
 * implement custom dotenv support
-* fix: method-based locators are broken once proxied via `withSteps` if not ignored with corresponding prefix (`_` or `$`)
 * add installation instructions to README
 * add project settings with dotenv overrides to allow customize steps behavior (like prefixes to ignore, etc.)
 * model one more page (like playwright docs, etc.)
