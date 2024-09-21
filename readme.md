@@ -58,5 +58,3 @@ The proxy appliction to report each step-method of a PageObject will be document
   ```
 
   – that does not look concise enough:) so let's think on in a bit more...
-
-* can we make proxy impl lines not reported in html report steps?

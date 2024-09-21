@@ -4,7 +4,7 @@ import playwrightConfig from './playwright.config.js'
 export const config = withEnvOverrides(
   {
     cancelWithSteps: false,
-    enableMatcherSteps: false,
+    enableMatcherSteps: true,
     /* ⬇️ sub-configs ⬇️ */
     playwright: playwrightConfig,
   },
