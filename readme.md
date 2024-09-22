@@ -23,6 +23,8 @@ The proxy appliction to report each step-method of a PageObject will be document
 
 ## Other TODOs
 
+* enhance reporting of `await expect(app.page).toHaveTitle(/Playwright/)`
+  (current is logged as `expect [object Object]: toHaveTitle: "/Playwright/"`)
 * refactor for project root based imports
 * implement custom dotenv support
 * add installation instructions to README
