@@ -5,6 +5,7 @@ export const config = withEnvOverrides(
   {
     cancelWithSteps: false,
     enableMatcherSteps: true,
+    apiBaseURL: 'https://api.example.com',
     /* ⬇️ sub-configs ⬇️ */
     playwright: playwrightConfig,
   },

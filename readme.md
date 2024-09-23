@@ -58,3 +58,4 @@ The proxy appliction to report each step-method of a PageObject will be document
   ```
 
   – that does not look concise enough:) so let's think on in a bit more...
+* add API tests examples based on implemented helpers
